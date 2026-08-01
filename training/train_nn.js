@@ -9,7 +9,7 @@
 const fs = require("fs");
 const path = require("path");
 const { forward, encodeGrid, INPUT_DIM, N_CELLS, N_CLASSES } = require("../docs/neural-net.js");
-const { generateDataset, mulberry32 } = require("./generate_puzzles.js");
+const { generateDataset, mulberry32 } = require("../docs/generate-puzzle.js");
 
 const HIDDEN_DIM = 128;
 const OUTPUT_DIM = N_CELLS * N_CLASSES;

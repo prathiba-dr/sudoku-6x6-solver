@@ -10,7 +10,7 @@ const path = require("path");
 const GL = require("../docs/game-logic.js");
 const { forward, encodeGrid, N_CELLS, N_CLASSES } = require("../docs/neural-net.js");
 const { solve } = require("../docs/backtracking-solver.js");
-const { generateDataset } = require("./generate_puzzles.js");
+const { generateDataset } = require("../docs/generate-puzzle.js");
 
 const SEARCH_BENCHMARK_SAMPLES = 300;
 
