@@ -18,7 +18,9 @@
   let solved = new Array(N_CELLS).fill(0);
   let net = null;
 
+  const solveNNBtnDefaultText = solveNNBtn.textContent;
   solveNNBtn.disabled = true;
+  solveNNBtn.textContent = "Solve (Neural Net) - loading model...";
   fetch("nn_weights.json")
     .then((r) => r.json())
     .then((raw) => {
@@ -28,6 +30,7 @@
         W2: Float32Array.from(raw.W2), b2: Float32Array.from(raw.b2),
       };
       solveNNBtn.disabled = false;
+      solveNNBtn.textContent = solveNNBtnDefaultText;
     })
     .catch((err) => {
       solveNNBtn.textContent = "Solve (Neural Net) - failed to load";
