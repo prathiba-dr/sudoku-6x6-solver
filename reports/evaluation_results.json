@@ -1,0 +1,20 @@
+{
+  "n_test_puzzles": 1000,
+  "target_clues": 14,
+  "neural_net": {
+    "clue_cell_accuracy": 0.9996,
+    "hidden_cell_accuracy": 0.6356,
+    "overall_cell_accuracy": 0.7772,
+    "exact_grid_accuracy": 0,
+    "valid_and_complete_grid_rate": 0
+  },
+  "backtracking_solver": {
+    "exact_grid_accuracy": 1
+  },
+  "nn_guided_search_benchmark": {
+    "n_puzzles": 300,
+    "avg_nodes_plain_mrv": 1.0333,
+    "avg_nodes_nn_guided": 1.0333,
+    "node_reduction_pct": 0
+  }
+}

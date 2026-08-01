@@ -44,17 +44,26 @@
     return { index: best, candidates: bestCands };
   }
 
-  // returns a solved grid, or null if unsolvable
-  function solve(grid) {
+  // returns a solved grid, or null if unsolvable. `options.orderCandidates`
+  // lets a caller re-rank which value to try first at a given cell (used
+  // to test whether NN-predicted values as a search hint reduce the
+  // number of nodes visited); `options.counter` is a mutable {nodes: 0}
+  // object used to measure search effort for that comparison.
+  function solve(grid, options = {}) {
+    if (options.counter) options.counter.nodes++;
+
     const propagated = propagate(grid);
     if (propagated === null) return null;
     if (GL.isComplete(propagated)) return propagated;
 
     const { index, candidates } = findMRVCell(propagated);
-    for (const val of candidates) {
+    const ordered = options.orderCandidates
+      ? options.orderCandidates(index, candidates)
+      : candidates;
+    for (const val of ordered) {
       const next = propagated.slice();
       next[index] = val;
-      const result = solve(next);
+      const result = solve(next, options);
       if (result !== null) return result;
     }
     return null;

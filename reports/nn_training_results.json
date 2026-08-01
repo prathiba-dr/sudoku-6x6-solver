@@ -1,0 +1,7 @@
+{
+  "targetClues": 14,
+  "trainSamples": 20000,
+  "testSamples": 2000,
+  "cellAccuracy": 0.7740972222222222,
+  "exactGridAccuracy": 0
+}
