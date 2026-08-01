@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6x6 Sudoku: Backtracking vs Neural Net Solver</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>6x6 Sudoku Solver</h1>
+    <p class="subtitle">Compares a constraint-propagation + backtracking solver (always correct) against a small neural net trained from scratch on 20,000 puzzles (usually isn't). No frameworks, no build step.</p>
+
+    <div class="controls">
+      <button id="new-puzzle-btn">New Puzzle</button>
+      <button id="solve-backtrack-btn">Solve (Backtracking)</button>
+      <button id="solve-nn-btn">Solve (Neural Net)</button>
+      <button id="check-btn">Check My Answer</button>
+      <button id="clear-btn">Clear My Entries</button>
+    </div>
+
+    <p id="status" class="status">Generating puzzle...</p>
+
+    <div id="board" class="board"></div>
+
+    <section class="legend">
+      <span><i class="swatch clue"></i> Clue</span>
+      <span><i class="swatch user"></i> Your entry</span>
+      <span><i class="swatch nn-correct"></i> NN correct</span>
+      <span><i class="swatch nn-wrong"></i> NN wrong</span>
+    </section>
+
+    <footer>
+      <p>Trained NN: 77.7% overall per-cell accuracy, but only 63.6% on cells that aren't clues, and <strong>0% of puzzles solved exactly or even validly</strong> from its raw output alone - getting all 36 cells right at once needs a lot more than a per-cell accuracy rate close to 1. Full write-up and numbers: <a href="https://github.com/prathiba-dr/sudoku-6x6-solver" target="_blank" rel="noopener">GitHub</a>.</p>
+    </footer>
+  </main>
+
+  <script src="game-logic.js"></script>
+  <script src="backtracking-solver.js"></script>
+  <script src="generate-puzzle.js"></script>
+  <script src="neural-net.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
